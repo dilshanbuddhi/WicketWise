@@ -7,6 +7,7 @@ import org.example.wicketwise.entity.Role;
 import org.example.wicketwise.entity.User;
 import org.example.wicketwise.repository.UserRepository;
 import org.example.wicketwise.security.JwtService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
