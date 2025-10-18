@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "matches") // or cricket_match, etc.
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

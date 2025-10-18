@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Entity
+/*@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder*/
 public class Tournament {
-    @Id
+   /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -23,5 +23,5 @@ public class Tournament {
     private String season;
 
     @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
-    private List<Match> matches;
+    private List<Match> matches;*/
 }
