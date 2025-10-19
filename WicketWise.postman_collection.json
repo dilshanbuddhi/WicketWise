@@ -1,0 +1,476 @@
+{
+  "info": {
+    "name": "WicketWise API",
+    "description": "Postman collection for WicketWise Cricket Application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john_doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"securepassword123\",\n    \"role\": \"USER\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get User by Username",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/username/john_doe",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "username", "john_doe"]
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john_doe_updated\",\n    \"email\": \"john_updated@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Authenticate User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "john_doe",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "securepassword123",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/authenticate",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "authenticate"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Matches",
+      "item": [
+        {
+          "name": "Create Match",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"team1Id\": 1,\n    \"team2Id\": 2,\n    \"matchDate\": \"2025-10-20T10:00:00\",\n    \"venue\": \"Wankhede Stadium\",\n    \"status\": "SCHEDULED"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/matches",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches"]
+            }
+          }
+        },
+        {
+          "name": "Get Match by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Matches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches"]
+            }
+          }
+        },
+        {
+          "name": "Get Upcoming Matches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/upcoming",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "upcoming"]
+            }
+          }
+        },
+        {
+          "name": "Get Matches by Team",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/team/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "team", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Matches by Date Range",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/date-range?startDate=2025-10-01T00:00:00&endDate=2025-10-31T23:59:59",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "date-range"],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2025-10-01T00:00:00"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2025-10-31T23:59:59"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Match Status",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/1/status?status=IN_PROGRESS",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "1", "status"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "IN_PROGRESS"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Match",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/matches/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "matches", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teams",
+      "item": [
+        {
+          "name": "Create Team",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Mumbai Indians\",\n    \"shortName\": \"MI\",\n    \"captainId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/teams",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "teams"]
+            }
+          }
+        },
+        {
+          "name": "Get Team by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/teams/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "teams", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Team by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/teams/name/Mumbai%20Indians",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "teams", "name", "Mumbai Indians"]
+            }
+          }
+        },
+        {
+          "name": "Search Teams",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/teams/search?query=Mumbai",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "teams", "search"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "Mumbai"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Team",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Mumbai Indians Updated\",\n    \"shortName\": \"MI\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/teams/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "teams", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Team",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/teams/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "teams", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Innings",
+      "item": [
+        {
+          "name": "Create Innings",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"matchId\": 1,\n    \"battingTeamId\": 1,\n    \"bowlingTeamId\": 2,\n    \"totalRuns\": 0,\n    \"totalWickets\": 0,\n    \"totalOvers\": 20,\n    \"isCompleted\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/innings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "innings"]
+            }
+          }
+        },
+        {
+          "name": "Get Innings by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/innings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "innings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Innings by Match",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/innings/match/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "innings", "match", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Deliveries",
+      "item": [
+        {
+          "name": "Create Delivery",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inningsId\": 1,\n    \"batsmanId\": 1,\n    \"bowlerId\": 2,\n    \"runsScored\": 4,\n    \"isWicket\": false,\n    \"deliveryType\": \"NORMAL\",\n    \"ballNumber\": 1,\n    \"overNumber\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/deliveries",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "deliveries"]
+            }
+          }
+        },
+        {
+          "name": "Get Delivery by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/deliveries/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "deliveries", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Deliveries by Innings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/deliveries/innings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "deliveries", "innings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Deliveries by Bowler",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/deliveries/bowler/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "deliveries", "bowler", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
