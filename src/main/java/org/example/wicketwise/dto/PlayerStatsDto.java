@@ -12,17 +12,31 @@ import lombok.NoArgsConstructor;
 public class PlayerStatsDto {
     private Long id;
     private PlayerDto player;
+    
+    // Batting stats
     private Integer matches;
     private Integer innings;
     private Integer runs;
     private Integer ballsFaced;
+    private Integer fours;
+    private Integer sixes;
+    private Integer highestScore;
+    private Double battingAverage;
+    private Double battingStrikeRate;
     private Integer fifties;
     private Integer hundreds;
-    private Double average;
-    private Double strikeRate;
+    
+    // Bowling stats
     private Integer wickets;
-    private Integer ballsBowled;
+    private Integer oversBowled;
+    private Integer maidens;
     private Integer runsConceded;
-    private Double economy;
-
+    private String bestBowlingInnings;
+    private String bestBowlingMatch;
+    private Double bowlingAverage;
+    private Double bowlingEconomy;
+    private Double bowlingStrikeRate;
+    private Integer fourWickets;
+    private Integer fiveWickets;
+    private Integer ballsBowled;
 }

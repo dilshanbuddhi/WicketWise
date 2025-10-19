@@ -78,10 +78,11 @@ public class PlayerServiceIMPL implements PlayerService {
     @Override
     public List<PlayerDto> searchPlayers(String query) {
         // Implement search logic based on your requirements
-        return playerRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(query, query)
-                .stream()
+      /*  return playerRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(query, query).stream()
                 .map(playerMapper::toDto)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
+
+        return null;
     }
 
     @Override

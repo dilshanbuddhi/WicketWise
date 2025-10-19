@@ -6,10 +6,10 @@ import org.example.wicketwise.dto.MatchPlayerDto;
 import org.example.wicketwise.entity.MatchPlayer;
 import org.example.wicketwise.exception.ResourceNotFoundException;
 import org.example.wicketwise.mapper.MatchPlayerMapper;
-import org.example.wicketwise.repository.MatchPlayerRepo;
-import org.example.wicketwise.repository.MatchRepo;
-import org.example.wicketwise.repository.PlayerRepo;
-import org.example.wicketwise.repository.TeamRepo;
+import org.example.wicketwise.repository.MatchPlayerRepository;
+import org.example.wicketwise.repository.MatchRepository;
+import org.example.wicketwise.repository.PlayerRepository;
+import org.example.wicketwise.repository.TeamRepository;
 import org.example.wicketwise.service.MatchPlayerService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,10 +23,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class MatchPlayerServiceIMPL implements MatchPlayerService {
 
-    private final MatchPlayerRepo matchPlayerRepo;
-    private final MatchRepo matchRepo;
-    private final PlayerRepo playerRepo;
-    private final TeamRepo teamRepo;
+    private final MatchPlayerRepository matchPlayerRepo;
+    private final MatchRepository matchRepo;
+    private final PlayerRepository playerRepo;
+    private final TeamRepository teamRepo;
     private final MatchPlayerMapper matchPlayerMapper;
 
     @Override

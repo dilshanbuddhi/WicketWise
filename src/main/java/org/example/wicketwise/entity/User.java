@@ -37,14 +37,28 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Role role;
     
+    @Builder.Default
+    private boolean active = true;
+    
+    @Column(name = "account_non_locked")
+    @Builder.Default
+    private boolean accountNonLocked = true;
+    
+    @Column(name = "enabled")
+    @Builder.Default
+    private boolean enabled = true;
+    
+    @Column(name = "reset_token")
+    private String resetToken;
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority("RO_" + role.name()));
     }
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
@@ -54,7 +68,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return accountNonLocked;
     }
 
     @Override
@@ -64,10 +78,10 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled && active;
     }
     
-    // Custom method to get the user's email (since we use email as username)
+    // Custom method to get the user's email
     public String getEmail() {
         return this.email;
     }
@@ -75,5 +89,10 @@ public class User implements UserDetails {
     // Custom method to get the user's role
     public Role getRole() {
         return this.role;
+    }
+    
+    // Custom method to check if user is active
+    public boolean isActive() {
+        return active;
     }
 }

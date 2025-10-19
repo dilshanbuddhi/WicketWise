@@ -19,6 +19,10 @@ public class Team {
     private String name;
     private String shortCode;
     private String logoUrl;
+    private String country;
+    private String city;
+    private String homeGround;
+    private Integer establishedYear;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Player> players;

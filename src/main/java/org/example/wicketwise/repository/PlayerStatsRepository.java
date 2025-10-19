@@ -26,7 +26,7 @@ public interface PlayerStatsRepository extends JpaRepository<PlayerStats, Long> 
     List<PlayerStats> findTop10ByOrderByWicketsDesc();
     
     // Find players with best batting average (minimum 10 innings)
-    @Query("SELECT ps FROM PlayerStats ps WHERE ps.innings >= 10 ORDER BY ps.average DESC")
+    @Query("SELECT ps FROM PlayerStats ps WHERE ps.innings >= 10 ORDER BY ps.battingAverage DESC")
     List<PlayerStats> findBestBattingAverages();
     
     // Find players with best bowling average (minimum 10 wickets)
@@ -41,10 +41,10 @@ public interface PlayerStatsRepository extends JpaRepository<PlayerStats, Long> 
     List<PlayerStats> findTop10ByOrderByMatchesDesc();
     
     // Find players with best economy rate (minimum 50 overs bowled)
-    @Query("SELECT ps FROM PlayerStats ps WHERE ps.ballsBowled >= 300 ORDER BY ps.economy ASC")
+    @Query("SELECT ps FROM PlayerStats ps WHERE ps.ballsBowled >= 300 ORDER BY ps.bowlingEconomy ASC")
     List<PlayerStats> findBestEconomyRates();
     
     // Find players with best strike rate (minimum 100 balls faced)
-    @Query("SELECT ps FROM PlayerStats ps WHERE ps.ballsFaced >= 100 ORDER BY ps.strikeRate DESC")
+    @Query("SELECT ps FROM PlayerStats ps WHERE ps.ballsFaced >= 100 ORDER BY ps.battingStrikeRate DESC")
     List<PlayerStats> findBestBattingStrikeRates();
 }

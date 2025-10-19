@@ -58,7 +58,7 @@ public class UserServiceIMPL implements UserService {
             user.setPassword(passwordEncoder.encode(userDto.getPassword()));
             // Ensure new users have appropriate default role if not specified
             if (user.getRole() == null) {
-                user.setRole(Role.USER);
+                user.setRole(org.example.wicketwise.entity.Role.USER);
             }
             
             User savedUser = userRepo.save(user);

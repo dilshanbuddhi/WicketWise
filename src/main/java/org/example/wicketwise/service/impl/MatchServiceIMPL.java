@@ -78,24 +78,18 @@ public class MatchServiceIMPL implements MatchService {
     @Override
     public void deleteMatch(Long id) {
         if (!matchRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Match not found with id: " + id);
         }
         matchRepository.deleteById(id);
     }
 
     @Override
     public MatchDto updateMatchStatus(Long id, String status) {
-        return matchRepository.findById(id)
-                .map(match -> {
-                    match.setStatus(status);
-                    Match updatedMatch = matchRepository.save(match);
-                    return matchMapper.toDto(updatedMatch);
-                })
-                .orElseThrow(() -> new ResourceNotFoundException("Match not found with id: " + id));
+        return null;
     }
 
     @Override
     public long countMatches() {
-        return matchRepository.count();
+        return 0;
     }
+
 }
