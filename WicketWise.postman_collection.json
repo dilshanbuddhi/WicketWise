@@ -142,7 +142,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"team1Id\": 1,\n    \"team2Id\": 2,\n    \"matchDate\": \"2025-10-20T10:00:00\",\n    \"venue\": \"Wankhede Stadium\",\n    \"status\": "SCHEDULED"\n}"
+              "raw": "{\n    \"team1Id\": 1,\n    \"team2Id\": 2,\n    \"matchDate\": \"2025-10-20T10:00:00\",\n    \"venue\": \"Wankhede Stadium\",\n    \"status\": \"SCHEDULED\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/matches",
