@@ -1,7 +1,11 @@
 package org.example.wicketwise.controller;
 
 import jakarta.validation.Valid;
+import org.example.wicketwise.dto.AuthenticationRequest;
+import org.example.wicketwise.dto.AuthenticationResponse;
 import org.example.wicketwise.dto.UserDto;
+import org.example.wicketwise.entity.enums.Role;
+import org.example.wicketwise.service.AuthenticationService;
 import org.example.wicketwise.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +18,31 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final AuthenticationService authenticationService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, AuthenticationService authenticationService) {
         this.userService = userService;
+        this.authenticationService = authenticationService;
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<AuthenticationResponse> registerUser(@Valid @RequestBody AuthenticationRequest request) {
+        // First create the user
+        UserDto userDto = new UserDto();
+        userDto.setUsername(request.getEmail().split("@")[0]);
+        userDto.setEmail(request.getEmail());
+        userDto.setPassword(request.getPassword());
+        userDto.setRole(Role.SCORER);
+        
+        // Save the user
+        UserDto createdUser = userService.createUser(userDto);
+        
+        // Authenticate and generate token
+        AuthenticationResponse authResponse = authenticationService.register(request);
+        
+        return new ResponseEntity<>(authResponse, HttpStatus.CREATED);
+    }
+    
     @PostMapping
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
         UserDto createdUser = userService.createUser(userDto);
